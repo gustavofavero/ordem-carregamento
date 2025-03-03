@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montagem de Conjuntos</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>Montar/Desmontar Conjuntos 🚛</h1>
+    </header>
+
+    <main>
+        <form id="formConjunto">
+            <label for="cavaloMecanico">Cavalo Mecânico:</label>
+            <select id="cavaloMecanico" required></select>
+
+            <label for="carretas">Carretas:</label>
+            <select id="carretas" multiple required></select>
+
+            <label for="motorista">Motorista:</label>
+            <select id="motorista" required></select>
+
+            <button type="button" id="btnMontarConjunto">Montar Conjunto</button>
+            <button type="button" id="btnDesmontarConjunto">Desmontar Conjunto</button>
+        </form>
+
+        <hr>
+
+        <h2>Conjuntos Ativos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cavalo Mecânico</th>
+                    <th>Carretas</th>
+                    <th>Motorista</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaConjuntos"></tbody>
+        </table>
+    </main>
+
+    <script src="../js/montar_conjunto.js"></script>
+</body>
+</html>
