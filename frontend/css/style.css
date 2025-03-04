@@ -1,0 +1,107 @@
+/* Reset padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Evita rolagem horizontal */
+html, body {
+    background-color: #f4f4f4;
+    text-align: center;
+    overflow-x: hidden;  /* Corrige o problema de scroll horizontal */
+    width: 100%;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    flex-direction: row; /* Mudamos para coluna para melhor alinhamento */
+    justify-content: left;
+    align-items: center;
+    height: 70vh;
+}
+
+/* Menu de cadastros */
+.menu {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 80vw; /* Garante que não passe do limite da tela */
+    overflow: hidden;
+}
+
+.menu h2 {
+    background-color: #3162c1;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+/* Container dos botões para evitar que ultrapassem a tela */
+.botao-container {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que os botões quebrem linha quando necessário */
+    justify-content: left;
+    gap: 30px;  /* Espaço entre botões */
+    max-width: 100%; /* Evita que fique maior que o container */
+}
+
+/* Estilo dos botões */
+.menu button {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu button i {
+    font-size: 16px;
+}
+
+.menu button:hover {
+    background-color: #444;
+}
+
+/* Botão de Ordem de Carregamento */
+.botao-ordem {
+    margin-top: 20px;
+}
+
+.botao-ordem button {
+    width: auto;
+    background-color: #3162c1;
+    color: white;
+    padding: 15px;
+    border: none;
+    font-size: 18px;
+    cursor: center;
+    border-radius: 50px;
+    transition: 0.3s;
+    display: right;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.botao-ordem button:hover {
+    background-color: #274c9b;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+}

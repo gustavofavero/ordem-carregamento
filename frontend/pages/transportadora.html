@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro da Transportadora</title>
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro da Empresa Emissora</h2>
+
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="razao_social">Razão Social:</label>
+                <input type="text" id="razao_social" name="razao_social" required>
+                
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" name="cnpj" required>
+
+                <label for="insc_estadual">Inscrição Estadual:</label>
+                <input type="text" id="insc_estadual" name="insc_estadual">
+            </div>
+
+            <div class="form-group">
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" name="logradouro" required>
+
+                <label for="numero">Nº:</label>
+                <input type="text" id="numero" name="numero" required>
+
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" required>
+            </div>
+
+            <div class="form-group">
+                <label for="uf">UF:</label>
+                <select id="uf" name="uf" required>
+                    <option value="">Selecione</option>
+                    <option value="SP">SP</option>
+                    <option value="RJ">RJ</option>
+                    <option value="MG">MG</option>
+                    <!-- Adicione os outros estados -->
+                </select>
+
+                <label for="cidade">Cidade:</label>
+                <select id="cidade" name="cidade" required>
+                    <option value="">Selecione o estado primeiro</option>
+                </select>
+
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contato1">Contato 1:</label>
+                <input type="text" id="contato1" name="contato1" required>
+
+                <label for="contato2">Contato 2:</label>
+                <input type="text" id="contato2" name="contato2">
+
+                <label for="contato3">Contato 3:</label>
+                <input type="text" id="contato3" name="contato3">
+            </div>
+
+            <div class="form-group">
+                <label for="responsavel">Nome do Responsável:</label>
+                <input type="text" id="responsavel" name="responsavel" required>
+
+                <label for="contato_responsavel">Contato do Responsável:</label>
+                <input type="text" id="contato_responsavel" name="contato_responsavel" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rntrc">RNTRC:</label>
+                <input type="text" id="rntrc" name="rntrc" required>
+
+                <label for="data_rntrc">Data Emissão RNTRC:</label>
+                <input type="date" id="data_rntrc" name="data_rntrc" required>
+
+                <label for="upload_rntrc">Cartão RNTRC (PDF):</label>
+                <input type="file" id="upload_rntrc" name="upload_rntrc" accept=".pdf">
+            </div>
+
+            <div class="form-group">
+                <label for="upload_logo">Upload Logomarca (.JPG):</label>
+                <input type="file" id="upload_logo" name="upload_logo" accept=".jpg, .jpeg, .png">
+
+                <label for="upload_certificado">Upload Certificado CNPJ (PDF):</label>
+                <input type="file" id="upload_certificado" name="upload_certificado" accept=".pdf">
+
+                <label for="upload_contrato">Upload Contrato Social (PDF):</label>
+                <input type="file" id="upload_contrato" name="upload_contrato" accept=".pdf">
+            </div>
+
+            <div class="form-buttons">
+                <button type="button" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Voltar</button>
+                <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</button>
+                <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Salvar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
