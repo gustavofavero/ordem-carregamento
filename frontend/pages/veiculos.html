@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Veículos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Cadastro de Veículos</h2>
+
+        <form>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label">Placa*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">RENAVAM*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Km Atual*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label">UF*:</label>
+                    <select class="form-select" id="uf" required>
+                        <option value="">Selecione</option>
+                        <option value="AC">Acre (AC)</option>
+                        <option value="AL">Alagoas (AL)</option>
+                        <option value="AP">Amapá (AP)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="ES">Espírito Santo (ES)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="MA">Maranhão (MA)</option>
+                        <option value="MT">Mato Grosso (MT)</option>
+                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PA">Pará (PA)</option>
+                        <option value="PB">Paraíba (PB)</option>
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="PI">Piauí (PI)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="RN">Rio Grande do Norte (RN)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="RO">Rondônia (RO)</option>
+                        <option value="RR">Roraima (RR)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <option value="SE">Sergipe (SE)</option>
+                        <option value="TO">Tocantins (TO)</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Município*:</label>
+                    <select class="form-select" id="municipio" required>
+                        <option value="">Selecione a UF primeiro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nome Motorista*:</label>
+                    <select class="form-select" id="motorista" required>
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">CPF Motorista:</label>
+                    <input type="text" class="form-control" id="cpf_motorista" readonly>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button" class="btn btn-secondary me-2">VOLTAR</button>
+                <button type="button" class="btn btn-warning me-2">EDITAR</button>
+                <button type="submit" class="btn btn-success">SALVAR</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("uf").addEventListener("change", function() {
+            let ufSelecionado = this.value;
+            fetch(`https://brasilapi.com.br/api/ibge/municipios/v1/${ufSelecionado}`)
+                .then(response => response.json())
+                .then(data => {
+                    let municipioSelect = document.getElementById("municipio");
+                    municipioSelect.innerHTML = '<option value="">Selecione</option>';
+                    data.forEach(municipio => {
+                        let option = document.createElement("option");
+                        option.value = municipio.nome;
+                        option.textContent = municipio.nome;
+                        municipioSelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Erro ao carregar municípios:", error));
+        });
+
+        function carregarMotoristas() {
+            fetch("backend/motoristas_ativos.php")
+                .then(response => response.json())
+                .then(data => {
+                    let motoristaSelect = document.getElementById("motorista");
+                    motoristaSelect.innerHTML = '<option value="">Selecione</option>';
+                    data.forEach(motorista => {
+                        let option = document.createElement("option");
+                        option.value = motorista.cpf;
+                        option.textContent = motorista.nome;
+                        motoristaSelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Erro ao carregar motoristas:", error));
+        }
+
+        document.getElementById("motorista").addEventListener("change", function() {
+            let motoristaCPF = this.value;
+            document.getElementById("cpf_motorista").value = motoristaCPF;
+        });
+
+        carregarMotoristas();
+    </script>
+</body>
+</html>

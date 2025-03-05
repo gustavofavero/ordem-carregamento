@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Cadastro de Clientes</h2>
+
+        <form>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nome Completo*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">CPF/CNPJ*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+            </div>
+
+            <div id="emailContainer">
+                <div class="row mb-3 emailRow">
+                    <div class="col-md-10">
+                        <label class="form-label">E-mail*:</label>
+                        <input type="email" class="form-control emailInput" required>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end">
+                        <button type="button" class="btn btn-primary addEmail">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Número de Telefone*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">CEP*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label">Rua*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Cidade*:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Estado (UF)*:</label>
+                    <select class="form-select" required>
+                        <option value="">Selecione</option>
+                        <option value="AC">Acre (AC)</option>
+                        <option value="AL">Alagoas (AL)</option>
+                        <option value="AP">Amapá (AP)</option>
+                        <option value="AM">Amazonas (AM)</option>
+                        <option value="BA">Bahia (BA)</option>
+                        <option value="CE">Ceará (CE)</option>
+                        <option value="DF">Distrito Federal (DF)</option>
+                        <option value="ES">Espírito Santo (ES)</option>
+                        <option value="GO">Goiás (GO)</option>
+                        <option value="MA">Maranhão (MA)</option>
+                        <option value="MT">Mato Grosso (MT)</option>
+                        <option value="MS">Mato Grosso do Sul (MS)</option>
+                        <option value="MG">Minas Gerais (MG)</option>
+                        <option value="PA">Pará (PA)</option>
+                        <option value="PB">Paraíba (PB)</option>
+                        <option value="PR">Paraná (PR)</option>
+                        <option value="PE">Pernambuco (PE)</option>
+                        <option value="PI">Piauí (PI)</option>
+                        <option value="RJ">Rio de Janeiro (RJ)</option>
+                        <option value="RN">Rio Grande do Norte (RN)</option>
+                        <option value="RS">Rio Grande do Sul (RS)</option>
+                        <option value="RO">Rondônia (RO)</option>
+                        <option value="RR">Roraima (RR)</option>
+                        <option value="SC">Santa Catarina (SC)</option>
+                        <option value="SP">São Paulo (SP)</option>
+                        <option value="SE">Sergipe (SE)</option>
+                        <option value="TO">Tocantins (TO)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button" class="btn btn-secondary me-2">VOLTAR</button>
+                <button type="button" class="btn btn-warning me-2">EDITAR</button>
+                <button type="submit" class="btn btn-success">SALVAR</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let emailCount = 1;
+
+            document.querySelector(".addEmail").addEventListener("click", function() {
+                if (emailCount < 10) {
+                    let newEmailRow = document.createElement("div");
+                    newEmailRow.classList.add("row", "mb-3", "emailRow");
+
+                    newEmailRow.innerHTML = `
+                        <div class="col-md-10">
+                            <input type="email" class="form-control emailInput" required>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="button" class="btn btn-danger removeEmail">-</button>
+                        </div>
+                    `;
+
+                    document.getElementById("emailContainer").appendChild(newEmailRow);
+
+                    newEmailRow.querySelector(".removeEmail").addEventListener("click", function() {
+                        newEmailRow.remove();
+                        emailCount--;
+                    });
+
+                    emailCount++;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
