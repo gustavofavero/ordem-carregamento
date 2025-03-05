@@ -1,51 +1,57 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro da Transportadora</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/forms.css">
-</head>
-<body>
-    <div class="container mt-4">
-        <h2 class="text-center">Cadastro da Transportadora</h2>
+<!DOCTYPE html> 
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Cadastro da Transportadora</title> 
+    <link rel="stylesheet" href="../css/forms.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> 
+    <script src="../js/form-handler.js" defer></script> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h2>Cadastro da Empresa Emissora</h2> 
 
-        <form id="form-transportadora">
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Razão Social*:</label>
-                    <input type="text" id="razao_social" class="form-control" required>
+        <form action="#" method="POST" enctype="multipart/form-data"> 
+            <div class="form-group">
+                <div>
+                    <label for="razao_social">Razão Social:</label> 
+                    <input type="text" id="razao_social" name="razao_social" required> 
                 </div>
-                <div class="col-md-4">
-                    <label class="form-label">CNPJ*:</label>
-                    <input type="text" id="cnpj" class="form-control" required>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Inscrição Estadual:</label>
-                    <input type="text" id="insc_estadual" class="form-control">
+                <div>
+                    <label for="cnpj">CNPJ:</label> 
+                    <input type="text" id="cnpj" name="cnpj" required> 
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Logradouro*:</label>
-                    <input type="text" id="logradouro" class="form-control" required>
+            <div class="form-group"> 
+                <div>
+                    <label for="insc_estadual">Inscrição Estadual:</label> 
+                    <input type="text" id="insc_estadual" name="insc_estadual"> 
                 </div>
-                <div class="col-md-2">
-                    <label class="form-label">Nº*:</label>
-                    <input type="text" id="numero" class="form-control" required>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Bairro*:</label>
-                    <input type="text" id="bairro" class="form-control" required>
+                <div>
+                    <label for="logradouro">Logradouro:</label> 
+                    <input type="text" id="logradouro" name="logradouro" required> 
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">UF*:</label>
-                    <select id="uf" class="form-select" required>
+            <div class="form-group">
+                <div>
+                    <label for="numero">Nº:</label> 
+                    <input type="text" id="numero" name="numero" required> 
+                </div>
+                <div>
+                    <label for="bairro">Bairro:</label> 
+                    <input type="text" id="bairro" name="bairro" required> 
+                </div>
+            </div>
+
+            <div class="form-group"> 
+                <div>
+                    <label for="uf">UF:</label> 
+                    <select id="uf" name="uf" required>
                         <option value="">Selecione</option>
                         <option value="AC">Acre (AC)</option>
                         <option value="AL">Alagoas (AL)</option>
@@ -76,67 +82,66 @@
                         <option value="TO">Tocantins (TO)</option>
                     </select>
                 </div>
-                <div class="col-md-4">
-                    <label class="form-label">Cidade*:</label>
-                    <input type="text" id="cidade" class="form-control" required>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">CEP*:</label>
-                    <input type="text" id="cep" class="form-control" required>
+                <div>
+                    <label for="cidade">Cidade:</label> 
+                    <select id="cidade" name="cidade" required>
+                        <option value="">Selecione o estado primeiro</option> 
+                    </select> 
                 </div>
             </div>
 
-            <div class="text-center mt-4">
-                <button type="button" class="btn btn-secondary me-2">VOLTAR</button>
-                <button type="button" class="btn btn-warning me-2">EDITAR</button>
-                <button type="submit" class="btn btn-success">SALVAR</button>
+            <div class="form-group"> 
+                <div>
+                    <label for="cep">CEP:</label> 
+                    <input type="text" id="cep" name="cep" required> 
+                </div>
+                <div>
+                    <label for="contato1">Contato 1:</label> 
+                    <input type="text" id="contato1" name="contato1" required> 
+                </div>
             </div>
-        </form>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="form-group"> 
+                <div>
+                    <label for="responsavel">Nome do Responsável:</label> 
+                    <input type="text" id="responsavel" name="responsavel" required> 
+                </div>
+                <div>
+                    <label for="contato_responsavel">Contato do Responsável:</label> 
+                    <input type="text" id="contato_responsavel" name="contato_responsavel" required> 
+                </div>
+            </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+            <div class="form-group"> 
+                <div>
+                    <label for="rntrc">RNTRC:</label> 
+                    <input type="text" id="rntrc" name="rntrc" required> 
+                </div>
+                <div>
+                    <label for="data_rntrc">Data Emissão RNTRC:</label> 
+                    <input type="date" id="data_rntrc" name="data_rntrc" required> 
+                </div>
+            </div>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyB1xFDxC2ZMTJe0Rvk0wKGLrMjWuL4i03k",
-            authDomain: "sistema-transportes.firebaseapp.com",
-            projectId: "sistema-transportes",
-            storageBucket: "sistema-transportes.firebasestorage.app",
-            messagingSenderId: "429175160328",
-            appId: "1:429175160328:web:a0229f74d6657755f81bbd"
-        };
+            <div class="form-buttons"> 
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='../index.html'">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button> 
+                <button type="button" class="btn btn-warning" onclick="habilitarEdicao()">
+                    <i class="fas fa-edit"></i> Editar
+                </button> 
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i> Salvar
+                </button> 
+            </div> 
+        </form> 
+    </div> 
 
-        // Inicializa Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        document.getElementById("form-transportadora").addEventListener("submit", async function(event) {
-            event.preventDefault();
-
-            let dados = {
-                razao_social: document.getElementById("razao_social").value,
-                cnpj: document.getElementById("cnpj").value,
-                insc_estadual: document.getElementById("insc_estadual").value,
-                logradouro: document.getElementById("logradouro").value,
-                numero: document.getElementById("numero").value,
-                bairro: document.getElementById("bairro").value,
-                uf: document.getElementById("uf").value,
-                cidade: document.getElementById("cidade").value,
-                cep: document.getElementById("cep").value
-            };
-
-            try {
-                await addDoc(collection(db, "transportadoras"), dados);
-                alert("Cadastro salvo com sucesso!");
-                document.getElementById("form-transportadora").reset();
-            } catch (error) {
-                console.error("Erro ao salvar:", error);
-                alert("Erro ao salvar os dados!");
-            }
-        });
+    <script>
+        function habilitarEdicao() {
+            document.querySelectorAll("input, select").forEach(el => el.removeAttribute("disabled"));
+        }
     </script>
-</body>
+
+</body> 
 </html>

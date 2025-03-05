@@ -1,153 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Motoristas</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/forms.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/forms.css" />
+  </head>
+  <body>
     <div class="container mt-4">
-        <h2 class="text-center">Cadastro de Motoristas</h2>
-        
-        <form>
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Nome*:</label>
-                    <input type="text" class="form-control" required>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">CPF/CNPJ*:</label>
-                    <input type="text" class="form-control" required>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">RG/IE:</label>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
+      <h2 class="text-center">Cadastro de Motoristas</h2>
 
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Sexo:</label>
-                    <select class="form-select">
-                        <option value="">Selecione</option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Feminino</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Telefone:</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Data Nasc.:</label>
-                    <input type="date" class="form-control">
-                </div>
-            </div>
+      <form
+        action="../backend/upload_cnh.php"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Nome*:</label>
+            <input type="text" name="nome" class="form-control" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">CPF/CNPJ*:</label>
+            <input type="text" name="cpf_cnpj" class="form-control" required />
+          </div>
+        </div>
 
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Vínculo Transporte*:</label>
-                    <select class="form-select" required>
-                        <option value="">Selecione</option>
-                        <option value="FUNCIONARIO">Funcionário</option>
-                        <option value="TERCEIRO">Terceiro</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Núm. Hab.:</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Data Hab.:</label>
-                    <input type="date" class="form-control">
-                </div>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">RG/IE:</label>
+            <input type="text" name="rg_ie" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Sexo:</label>
+            <select name="sexo" class="form-select">
+              <option value="">Selecione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+          </div>
+        </div>
 
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Vcto. Hab.:</label>
-                    <input type="date" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Cat. Hab.:</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Nº Cartão:</label>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Telefone:</label>
+            <input type="text" name="telefone" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Data Nasc.:</label>
+            <input type="date" name="data_nascimento" class="form-control" />
+          </div>
+        </div>
 
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Endereço:</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Bairro:</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">CEP:</label>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Vínculo Transporte*:</label>
+            <select name="vinculo" class="form-select" required>
+              <option value="">Selecione</option>
+              <option value="FUNCIONARIO">Funcionário</option>
+              <option value="TERCEIRO">Terceiro</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Número da Habilitação:</label>
+            <input type="text" name="num_habilitacao" class="form-control" />
+          </div>
+        </div>
 
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">UF*:</label>
-                    <select class="form-select" required>
-                        <option value="">Selecione</option>
-                        <option value="SP">SP</option>
-                        <option value="RJ">RJ</option>
-                        <option value="MG">MG</option>
-                        <option value="BA">BA</option>
-                        <option value="RS">RS</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Município*:</label>
-                    <input type="text" class="form-control" required>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">E-mail*:</label>
-                    <input type="email" class="form-control" required>
-                </div>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Data Emissão Habilitação:</label>
+            <input
+              type="date"
+              name="data_emissao_habilitacao"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Vencimento Habilitação:</label>
+            <input
+              type="date"
+              name="vencimento_habilitacao"
+              class="form-control"
+            />
+          </div>
+        </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label class="form-label">Vcto. GRIS.:</label>
-                    <input type="date" class="form-control">
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Vcto. Pamcary.:</label>
-                    <input type="date" class="form-control">
-                </div>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Venc. Pamcary:</label>
+            <input type="date" name="venc_pamcary" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Status:</label>
+            <select name="status" class="form-select" required>
+              <option value="ATIVO">Ativo</option>
+              <option value="INATIVO">Inativo</option>
+            </select>
+          </div>
+        </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label class="form-label">Status*:</label>
-                    <select class="form-select" required>
-                        <option value="">Selecione</option>
-                        <option value="ATIVO">Ativo</option>
-                        <option value="INATIVO">Inativo</option>
-                    </select>
-                </div>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Endereço:</label>
+            <input type="text" name="endereco" class="form-control" />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Bairro:</label>
+            <input type="text" name="bairro" class="form-control" />
+          </div>
+        </div>
 
-            <div class="text-center mt-4">
-                <button type="button" class="btn btn-secondary me-2">VOLTAR</button>
-                <button type="button" class="btn btn-warning me-2">EDITAR</button>
-                <button type="submit" class="btn btn-success">SALVAR</button>
-            </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label">CEP:</label>
+            <input type="text" name="cep" class="form-control" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">UF*:</label>
+            <select name="uf" class="form-select" required>
+              <option value="">Selecione</option>
+              <option value="SP">São Paulo</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="BA">Bahia</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <!-- Adicione os outros estados -->
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Município:</label>
+            <input type="text" name="municipio" class="form-control" />
+          </div>
+        </div>
 
-        </form>
+        <!-- Upload da CNH -->
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <label class="form-label">Upload CNH (JPG ou PDF):</label>
+            <input
+              type="file"
+              name="cnh_file"
+              class="form-control"
+              accept=".jpg, .jpeg, .png, .pdf"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="window.location.href='../index.html'"
+          >
+            VOLTAR
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning"
+            onclick="habilitarEdicao()"
+          >
+            EDITAR
+          </button>
+          <button type="submit" class="btn btn-success">SALVAR</button>
+        </div>
+      </form>
     </div>
 
+    <script>
+      function habilitarEdicao() {
+        document
+          .querySelectorAll("input, select")
+          .forEach((el) => el.removeAttribute("disabled"));
+      }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>
